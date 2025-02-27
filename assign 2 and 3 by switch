@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<string.h>
+
+struct student{
+int roll_no;
+float marks;
+char name[50];
+};
+int main()
+{
+int i,j,n,ch1,ch2;
+printf("Enter the number of students:");
+scanf("%d",&n);
+
+struct student s[n];
+for(i=0;i<n;i++){
+printf("\nEnter student details:\n");
+printf("\nName:");
+scanf("%s",s[i].name);
+printf("\nRoll number:");
+scanf("%d",s[i].roll_no);
+printf("\nMarks:");
+scanf("%2.f",s[i].marks);
+}
+printf("\nSelect Choice\n");
+printf("1.Bubble sort\n 2.Selection sort");
+scanf("%d",&ch1);
+
+switch(ch1){
+
+case 1:
+ for(i=0;i<n-1;i++){
+ for(j=i+1;j<n-i-1;j++) 
+ {
+  if(a[j].roll_no > a[j+1].roll_no)
+  {
+   a[j]=a[j]+a[j+1];
+  a[j+1]=a[j]-a[j+1];
+  a[j]=a[j]-a[j+1];
+  }
+ }
+ }
+ printf("\nSorted by age\n");
+ break;
+
+case 2
