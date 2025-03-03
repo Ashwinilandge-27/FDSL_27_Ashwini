@@ -3,51 +3,44 @@
 
 struct Student {
     char name[50];
-    int age;
+    int roll_no;
     float marks;
 };
 
 int main() {
     int i, j, n, choice;
     struct Student temp;
-
-    // Asking for the number of students
     printf("Enter the number of students: ");
     scanf("%d", &n);
 
-    struct Student students[n]; // Array of structures
-
-    // Taking user input
+    struct Student students[n];
     for (i = 0; i < n; i++) {
         printf("\nEnter details for student %d:\n", i + 1);
         printf("Name: ");
-        scanf(" %[^\n]", students[i].name); // Using space before % to avoid newline issues
-        printf("Age: ");
-        scanf("%d", &students[i].age);
+        scanf(" %[^\n]", students[i].name); 
+        printf("Roll no: ");
+        scanf("%d", &students[i].roll_no);
         printf("Marks: ");
         scanf("%f", &students[i].marks);
     }
-
-    // Asking user for sorting criteria
-    printf("\nSort by:\n1. Age\n2. Marks\nEnter your choice (1 or 2): ");
+    printf("\nSort by:\n1. Roll_no\n2. Marks\nEnter your choice (1 or 2): ");
     scanf("%d", &choice);
 
-    // Bubble Sort using switch-case
     switch (choice) {
-        case 1:  // Sort by age
+        case 1: 
             for (i = 0; i < n - 1; i++) {
                 for (j = 0; j < n - i - 1; j++) {
-                    if (students[j].age > students[j + 1].age) {
+                    if (students[j].roll_no > students[j + 1].roll_no) {
                         temp = students[j];
                         students[j] = students[j + 1];
                         students[j + 1] = temp;
                     }
                 }
             }
-            printf("\nSorted by Age:\n");
+            printf("\nSorted by Roll no:\n");
             break;
 
-        case 2:  // Sort by marks
+        case 2:
             for (i = 0; i < n - 1; i++) {
                 for (j = 0; j < n - i - 1; j++) {
                     if (students[j].marks > students[j + 1].marks) {
@@ -64,11 +57,10 @@ int main() {
             printf("\nInvalid choice! Sorting not performed.\n");
             return 0;
     }
-
-    // Display sorted data
     for (i = 0; i < n; i++) {
-        printf("Name: %s, Age: %d, Marks: %.2f\n", students[i].name, students[i].age, students[i].marks);
+        printf("Name: %s, Roll no: %d, Marks: %.2f\n", students[i].name, students[i].roll_no, students[i].marks);
     }
 
     return 0;
 }
+
